@@ -1,0 +1,14 @@
+.root {
+	transition: filter calc(var(--durations-faster) * 1s) ease-in;
+
+	:global(.hasModal) & {
+		filter: blur(1px) saturate(40%);
+	}
+}
+
+.fallbackContent {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 8bh;
+}

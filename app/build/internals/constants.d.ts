@@ -1,0 +1,20 @@
+declare const _default: {
+    CLIENT_PLATFORM: string;
+    SERVER_PLATFORM: string;
+    EN_US: string;
+    CS_CZ: string;
+    SK_SK: string;
+    EN: string;
+    CS: string;
+    SK: string;
+    HTTP_OK: number;
+    HTTP_MOVED_PERMANENTLY: number;
+    HTTP_FOUND: number;
+    HTTP_FORBIDDEN: number;
+    HTTP_NOT_FOUND: number;
+    HTTP_METHOD_NOT_ALLOWED: number;
+    HTTP_INTERNAL_ERROR: number;
+    PORT: number;
+    HTTPS_PORT: number;
+};
+export default _default;

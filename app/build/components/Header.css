@@ -1,0 +1,42 @@
+.root {
+	margin: 0 1bh;
+	padding: 1.5bh 0 calc(0.5bh - 1 / 8 * 1bh);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	transition: filter calc(var(--durations-faster) * 1s) ease-in;
+
+	border-bottom: calc(1 / 8 * 1bh) solid var(--colors-text);
+
+	:global(.hasModal) & {
+		filter: blur(1px) saturate(40%);
+	}
+
+	h1 {
+		font-size: calc(var(--typographicScale-4) * 1px);
+		font-weight: 800;
+		text-transform: uppercase;
+	}
+
+	a {
+		background-image: none;
+
+		&:before {
+			top: calc(-1 / 8 * 1bh);
+			left: calc(-1 / 4 * 1bh);
+			right: calc(-1 / 4 * 1bh);
+			bottom: calc(-1 / 16 * 1bh);
+		}
+	}
+}
+
+.currentUser {
+	font-size: calc(var(--typographicScale-3) * 1px);
+	font-weight: 700;
+	text-transform: uppercase;
+
+	&:focus, &:hover, &:active {
+		background-image: none;
+	}
+}

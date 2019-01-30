@@ -1,0 +1,58 @@
+.root {
+	width: 1.5bh;
+	height: 1.5bh;
+
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity calc(var(--durations-faster) * 1s) ease-in calc(var(--durations-faster) * 1s), visibility calc(var(--durations-faster) * 1s) ease-in calc(var(--durations-faster) * 1s);
+
+	&.isVisible {
+		visibility: visible;
+		opacity: 1;
+		transition: opacity calc(var(--durations-faster) * 1s) ease-in, visibility calc(var(--durations-faster) * 1s) ease-in;
+	}
+
+	&.isInline {
+		display: inline-block;
+		vertical-align: top;
+		width: 1bh;
+		height: 1bh;
+
+		.spinner {
+			width: 1bh;
+			height: 1bh;
+		}
+	}
+
+	&.isAlternative {
+		.spinner {
+			background-color: var(--colors-secondary1-tint-6);
+		}
+	}
+}
+
+.spinner {
+	display: block;
+	width: 1.5bh;
+	height: 1.5bh;
+	background-color: var(--colors-primary1-base);
+
+	animation: spinner calc(var(--durations-slower) * 1s) infinite ease-in-out;
+
+	border-radius: 0.125bh;
+	outline: 1px solid transparent;
+}
+
+@keyframes spinner {
+	0% {
+		transform: perspective(6bh) rotateX(0deg) rotateY(0deg);
+	}
+
+	50% {
+		transform: perspective(6bh) rotateX(-180.1deg) rotateY(0deg);
+	}
+
+	100% {
+		transform: perspective(6bh) rotateX(-180deg) rotateY(-179.9deg);
+	}
+}

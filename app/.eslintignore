@@ -1,0 +1,5 @@
+assets/*
+build-latest/*
+build-next/*
+node_modules/*
+public/dist/*

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html class="noJavascript" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+		<title>Databáze testů</title>
+
+		<meta name="description" content="" />
+		<meta name="author" content="" />
+		<meta name="developer" content="Jakub Mazanec <jakubmazanec@mail.muni.cz>" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="msapplication-tap-highlight" content="no" />
+
+		<link rel="stylesheet" href="{{urlRoot}}/dist/client.css" type="text/css" />
+		<!--link rel="icon" type="image/vnd.microsoft.icon" href="{{ urlRoot }}/assets/favicon.ico" />
+		<link rel="shortcut icon" type="image/x-icon" href="{{ urlRoot }}/assets/favicon.ico" />
+		<link rel="preload" href="{{ urlRoot }}/assets/brandon-grotesque-bold.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="{{ urlRoot }}/assets/brandon-grotesque-light.woff2" as="font" type="font/woff2" crossorigin-->
+
+		{{ include('favicons.html') }}
+
+		<script type="text/javascript">
+			document.querySelector('html').className = '';
+		</script>
+	</head>
+
+	<body>
+		<div id="app">{{content}}</div>
+
+		<script type="text/javascript" src="{{urlRoot}}/dist/client.js"></script>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		"target": "es2017",
+		"module": "commonjs",
+		"lib": ["ES2017", "DOM", "DOM.Iterable", "scripthost", "esnext.asynciterable"],
+		"allowJs": false,
+		"declaration": true,
+		"preserveConstEnums": true,
+		"sourceMap": false,
+		"jsx": "preserve",
+		"newLine": "lf",
+		"allowSyntheticDefaultImports": true,
+		"moduleResolution": "node",
+		"listFiles": true,
+		"pretty": true,
+		"strictNullChecks": true,
+		"noImplicitAny": true,
+		"noImplicitThis": true,
+		"alwaysStrict": true,
+		"forceConsistentCasingInFileNames": true
+	}
+}

@@ -1,0 +1,87 @@
+.root {
+	padding: 0 1bh;
+}
+
+.heading {
+	composes: sectionTitleHeading from '../libs/ash-components/Page.css';
+	position: relative;
+
+	font-weight: 300;
+}
+
+.spinner {
+	display: flex;
+	justify-content: center;
+	margin: 1bh 0;
+}
+
+.tableItemHeading {
+	a {
+		&:before {
+			bottom: calc(-1 / 8 * 1bh);
+		}
+
+		& > span {
+			margin-top: 7px;
+		}
+	}
+}
+
+.tableSubitems {
+}
+
+.isHidden {
+	visibility: hidden;
+
+	@media screen and (--compactPage-start-min) and (--singleColumnPage-middle-max) {
+		display: none;
+	}
+}
+
+.tableSubitem {
+	&:first-child {
+		margin-top: -0.5bh;
+	}
+
+	&:last-child {
+		margin-bottom: -0.5bh;
+	}
+
+	> *:first-child {
+		margin-right: auto;
+	}
+
+	@media screen and (--compactPage-start-min) and (--singleColumnPage-middle-max) {
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	@media screen and (--compactPage-start-min) and (--compactPage-end-max) {
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.tableSubitem + .tableSubitem {
+	margin-top: -0.5bh;
+
+	@media screen and (--compactPage-start-min) and (--compactPage-end-max) {
+		margin-top: 0;
+	}
+}
+
+.buttons {
+	display: flex;
+	align-items: center;
+	margin: 1bh 0;
+
+	> * + * {
+		margin-left: 1bh;
+	}
+}

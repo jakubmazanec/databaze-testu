@@ -1,0 +1,33 @@
+.root {
+	margin: 2bh 0;
+	padding: 0 1bh;
+
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+
+	pre {
+		white-space: normal;
+	}
+}
+
+.heading {
+	composes: sectionTitleHeading from '../libs/ash-components/Page.css';
+	position: relative;
+
+	font-weight: 300;
+}
+
+.buttons {
+	> * {
+		display: flex;
+		align-items: center;
+		margin: 1bh 0;
+
+		> * + *{
+			margin-left: 1bh;
+		}
+	}
+}

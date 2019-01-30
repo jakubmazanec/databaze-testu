@@ -1,0 +1,43 @@
+.root {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	width: 100%;
+	height: 1bh;
+	margin: 0.5bh 0;
+
+	appearance: none;
+	color: var(--colors-primary1-base);
+	background-color: var(--textInput-default-backgroundColor);
+	background-image: none;
+	border: calc(var(--textInput-default-borderWidth) * 1px) solid var(--textInput-default-borderColor);
+	border-radius: var(--textInput-default-borderRadius);
+	box-shadow: var(--textInput-default-boxShadow);
+	outline: 0 none;
+}
+
+.root:not(value) {
+}
+
+.root::-webkit-progress-bar {
+	background-color: transparent;
+}
+
+.root::-webkit-progress-value {
+	background-color: var(--colors-primary1-base);
+	box-shadow: var(--textInput-default-boxShadow);
+}
+
+.root::-moz-progress-bar {
+	background-color: var(--colors-primary1-base);
+	box-shadow: var(--textInput-default-boxShadow);
+}
+
+.fallback {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+
+	background-color: var(--colors-primary1-base);
+}

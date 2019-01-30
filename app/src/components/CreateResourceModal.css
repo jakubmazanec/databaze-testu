@@ -1,0 +1,72 @@
+.root {
+	display: flex;
+	align-items: center;
+	position: fixed;
+	z-index: 2;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: 0;
+	padding: 2bh calc(2 / 12 * (100% - 2bh) + 1bh);
+	width: auto;
+	height: auto;
+
+	visibility: hidden;
+	opacity: 0;
+	transform: scale(1.25);
+	transition: opacity calc(var(--durations-faster) * 1s) ease-out, visibility calc(var(--durations-faster) * 1s) ease-out, transform calc(var(--durations-faster) * 1s) ease-out;
+
+	background-color: rgba(255, 255, 255, 0.2);
+
+	&.isOpen {
+		visibility: visible;
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	form {
+		margin-bottom: -1bh;
+	}
+}
+
+.content {
+	position: relative;
+	width: 100%;
+	height: auto;
+	max-height: 100%;
+	padding: 1bh;
+	overflow-x: hidden;
+	overflow-y: auto;
+
+	background-color: var(--colors-background);
+	box-shadow: 0 0.25bh 2bh color(var(--colors-neutral-shade-4) a(0.1));
+}
+
+.heading {
+	composes: sectionLevel1Heading from '../libs/ash-components/Page.css';
+	position: relative;
+	margin-top: 0;
+	padding-top: 0;
+}
+
+.closeButton {
+	position: absolute;
+	right: 1bh;
+	top: 1bh;
+}
+
+.buttons {
+	> * {
+		display: flex;
+		align-items: center;
+
+		> * {
+			margin-left: 0.5bh;
+
+			&:first-child {
+				margin-left: 0;
+			}
+		}
+	}
+}

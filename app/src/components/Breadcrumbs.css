@@ -1,0 +1,105 @@
+.root {
+	display: flex;
+	justify-content: space-between;
+	margin: 1bh 1bh 2bh;
+	padding: 0.5bh 0 calc(0.5bh - 1 / 16 * 1bh);
+
+	transition: filter calc(var(--durations-faster) * 1s) ease-in;
+
+	border-bottom: calc(1 / 16 * 1bh) solid var(--colors-text);
+
+	:global(.hasModal) & {
+		filter: blur(1px) saturate(40%);
+	}
+
+	ol {
+		display: flex;
+
+		font-size: calc(var(--typographicScale-4) * 1px);
+		font-weight: 600;
+		line-height: 1bh;
+
+		li {
+			position: relative;
+			padding-left: 1bh;
+
+			&:before {
+				position: absolute;
+				content: '\\';
+				width: 0.5bh;
+				left: 0.25bh;
+				top: 0;
+
+				color: var(--colors-primary1-base);
+
+				text-align: center;
+			}
+
+			&:first-child {
+				padding: 0;
+
+				&:before {
+					content: none;
+				}
+			}
+		}
+	}
+
+	a {
+		background-image: none;
+
+		&:visited {
+			background-image: none;
+		}
+
+		&:hover, &:active {
+			background-image: none;
+		}
+
+		&:before {
+			top: calc(-1 / 8 * 1bh);
+			left: calc(-1 / 4 * 1bh);
+			right: calc(-1 / 4 * 1bh);
+			bottom: calc(-1 / 8 * 1bh);
+		}
+
+		&.isSelected {
+			font-weight: 700;
+		}
+	}
+
+	@media screen and (--compactPage-start-min) and (--singleColumnPage-middle-max) {
+		flex-direction: column;
+
+		ol {
+			width: 100%;
+		}
+	}
+}
+
+.breadcrumbs {
+	order: 1;
+
+	@media screen and (--compactPage-start-min) and (--singleColumnPage-middle-max) {
+		width: 100%;
+		order: 2;
+	}
+}
+
+.menu {
+	order: 2;
+
+	a {
+		text-transform: uppercase;
+		font-weight: 700;
+	}
+
+	@media screen and (--compactPage-start-min) and (--singleColumnPage-middle-max) {
+		width: 100%;
+		order: 1;
+	}
+}
+
+.logoutLink {
+	cursor: pointer;
+}

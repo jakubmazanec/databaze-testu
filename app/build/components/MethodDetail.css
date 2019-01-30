@@ -1,0 +1,242 @@
+.root {
+	margin: 2bh 0;
+	padding: 0 1bh;
+
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+
+	pre {
+		white-space: normal;
+	}
+}
+
+.fallbackContent {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 8bh;
+}
+
+.heading {
+	composes: sectionTitleHeading from '../libs/ash-components/Page.css';
+	position: relative;
+
+	font-weight: 300;
+}
+
+.title {
+	b {
+		display: inline;
+
+		font-weight: 800;
+		font-size: inherit;
+		line-height: inherit;
+		text-transform: none;
+	}
+}
+
+.subtitle {
+	display: block;
+
+	font-size: calc(var(--typographicScale-4) * 1px);
+	line-height: 1bh;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+.attributeHeading {
+	composes: sectionLevel4Heading from '../libs/ash-components/Page.css';
+	margin: 0;
+}
+
+.row {
+	display: flex;
+	margin: 0 -1bh;
+	flex-wrap: wrap;
+
+	&:nth-of-type(1) {
+		margin-top: -1bh;
+	}
+
+	@media screen and (--tinyMenu-start-min) and (--tinyMenu-end-max) {
+		display: block;
+
+		&:nth-of-type(1) {
+			margin-top: 0;
+		}
+	}
+}
+
+.rowItem {
+	width: calc(2 / 10 * 100%);
+	padding: 0 1bh;
+	margin-top: 1bh;
+
+	.hasOnlyText {
+		margin: 0.25bh 0;
+	}
+
+	&.isTopAligned {
+		justify-content: flex-start;
+	}
+
+	@media screen and (--compactMenu-end-min) and (--singleColumnPage-end-max) {
+		width: calc(2 / 12 * 100%);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	@media screen and (--tinyMenu-end-min) and (--compactMenu-end-max) {
+		width: calc(4 / 12 * 100%);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	@media screen and (--tinyMenu-start-min) and (--tinyMenu-end-max) {
+		width: 100%;
+
+		.hasOnlyText {
+			margin-top: 0;
+		}
+	}
+}
+
+.doubleRowItem {
+	width: calc(4 / 10 * 100%);
+	padding: 0 1bh;
+	margin-top: 1bh;
+
+	@media screen and (--compactMenu-end-min) and (--singleColumnPage-end-max) {
+		width: calc(4 / 12 * 100%);
+	}
+
+	@media screen and (--tinyMenu-end-min) and (--compactMenu-end-max) {
+		width: calc(8 / 12 * 100%);
+	}
+
+	@media screen and (--tinyMenu-start-min) and (--tinyMenu-end-max) {
+		width: 100%;
+	}
+}
+
+.tripleRowItem {
+	width: calc(6 / 10 * 100%);
+	padding: 0 1bh;
+	margin-top: 1bh;
+
+	@media screen and (--compactMenu-end-min) and (--singleColumnPage-end-max) {
+		width: calc(8 / 12 * 100%);
+	}
+
+	@media screen and (--tinyMenu-end-min) and (--compactMenu-end-max) {
+		width: calc(10 / 12 * 100%);
+	}
+
+	@media screen and (--tinyMenu-start-min) and (--tinyMenu-end-max) {
+		width: 100%;
+	}
+}
+
+.wideRowItem {
+	width: 100%;
+	padding: 0 1bh;
+	margin-top: 1bh;
+}
+
+.isTrue {
+}
+
+.isFalse {
+	color: var(--colors-neutral-base);
+}
+
+.isUnknown {
+	color: var(--colors-neutral-base);
+}
+
+.isBeingEdited {
+	color: inherit;
+}
+
+.author {
+	display: block;
+}
+
+.tag {
+	display: block;
+}
+
+.subeading {
+	composes: sectionLevel1Heading from '../libs/ash-components/Page.css';
+
+	& + .row {
+		margin-top: -1bh;
+	}
+
+	@media screen and (--tinyMenu-start-min) and (--tinyMenu-end-max) {
+		display: block;
+
+		& + .row {
+			margin-top: 0;
+		}
+	}
+}
+
+.tableSubitem {
+	&:first-child {
+		margin-top: -0.5bh;
+	}
+
+	&:last-child {
+		margin-bottom: -0.5bh;
+	}
+
+	> *:first-child {
+		margin-right: auto;
+	}
+
+	@media screen and (--compactPage-start-min) and (--singleColumnPage-middle-max) {
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	@media screen and (--compactPage-start-min) and (--compactPage-end-max) {
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.tableSubitem + .tableSubitem {
+	margin-top: -0.5bh;
+
+	@media screen and (--compactPage-start-min) and (--compactPage-end-max) {
+		margin-top: 0;
+	}
+}
+
+.buttons {
+	display: flex;
+	align-items: center;
+	margin: 1bh 0;
+
+	> * + * {
+		margin-left: 1bh;
+	}
+}
+
+.spinner {
+	display: flex;
+	justify-content: center;
+	margin: 1bh 0;
+}

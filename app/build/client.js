@@ -1,0 +1,99 @@
+import 'babel-runtime/core-js';
+import './internals/polyfills';
+import $ from 'jquery';
+import _ from 'lodash';
+import Inferno from 'inferno';
+import Immutable from 'immutable';
+import moment from 'moment';
+import { Stream } from './libs/ash-utils';
+import App from './components/App';
+import browserRouter from './streams/browserRouter';
+if (process.env.NODE_ENV === 'development') {
+    global.$ = $;
+    global._ = _;
+    global.Inferno = Inferno;
+    global.Immutable = Immutable;
+    global.moment = moment;
+    global.Stream = Stream;
+}
+// grid toggle
+if (process.env.NODE_ENV === 'development') {
+    const G_KEY_CODE = 71;
+    $(global.document).on('keydown', event => {
+        let tagName = event.target.tagName.toLowerCase();
+        if (event.keyCode === G_KEY_CODE && event.target && tagName !== 'textarea' && tagName !== 'input') {
+            $('body').toggleClass('hasGrid');
+        }
+    });
+}
+// init router
+browserRouter.start();
+// render app
+let rootNode = document.getElementById('app');
+import { createVNode } from 'inferno';
+if (rootNode) {
+    console.log('Starting rendering the app...');
+    Inferno.render(createVNode(16, App), rootNode);
+}
+$('#app').addClass('isLoaded');
+/*if (navigator.serviceWorker) {
+    navigator.serviceWorker.register('/dist/sw.js', {scope: urlRoot})
+        // .then((registration) => {
+        // })
+        .catch((error) => {
+            console.warn(error);
+        });
+}*/
+/*var CACHE = 'cache';
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.onmessage = function (evt) {
+        var message = JSON.parse(evt.data);
+
+        var isRefresh = message.type === 'refresh';
+        var isAsset = message.url.includes('asset');
+        var lastETag = localStorage.currentETag;
+
+        // [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) header usually contains
+        // the hash of the resource so it is a very effective way of check for fresh
+        // content.
+        var isNew =  lastETag !== message.eTag;
+
+        if (isRefresh && isAsset && isNew) {
+            // Escape the first time (when there is no ETag yet)
+            if (lastETag) {
+                // Inform the user about the update
+                notice.hidden = false;
+            }
+            // For teaching purposes, although this information is in the offline
+            // cache and it could be retrieved from the service worker, keeping track
+            // of the header in the `localStorage` keeps the implementation simple.
+            localStorage.currentETag = message.eTag;
+        }
+    };
+
+    var notice = document.querySelector('#update-notice');
+
+    var update = document.querySelector('#update');
+    update.onclick = function (evt) {
+        var img = document.querySelector('img');
+        // Avoid navigation.
+        evt.preventDefault();
+        // Open the proper cache.
+        caches.open(CACHE)
+        // Get the updated response.
+        .then(function (cache) {
+            return cache.match(img.src);
+        })
+        // Extract the body as a blob.
+        .then(function (response) {
+            return response.blob();
+        })
+        // Update the image content.
+        .then(function (bodyBlob) {
+            var url = URL.createObjectURL(bodyBlob);
+            img.src = url;
+            notice.hidden = true;
+        });
+    };
+}*/
